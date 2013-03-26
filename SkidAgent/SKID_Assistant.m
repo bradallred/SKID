@@ -17,19 +17,17 @@
  */
 
 #import "SKID_Assistant.h"
-//#import "CGSPrivate.h"
 
 #define CG_EXTERN_C_BEGIN
 #define CG_EXTERN_C_END
 
-#import "CGSConnection.h"
-#import "CGSMisc.h"
+#import "CGS/CGSConnection.h"
+#import "CGS/CGSMisc.h"
 
 #import <AppKit/NSApplication.h>
 #import <AppKit/NSRunningApplication.h>
 #import <AppKit/NSWindow.h>
 #import <AppKit/NSWorkspace.h>
-//#import <AppKit/NSScreen.h>
 
 #pragma mark EventTapCallback
 CGEventRef sessionEventCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef event, void *refcon);

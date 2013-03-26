@@ -19,9 +19,11 @@
 #import "SteamInterface.h"
 
 #define IPCSERVER_MACH_SERVICE_NAME @"com.valvesoftware.steam.ipctool"
-#define VERSION_SAFE_STEAM_API_INTERFACES
-#include "steam_sdk/steam_api.h"
-#include "ISteamApps001.h"
+#define STEAMWORKS_CLIENT_INTERFACES
+
+#include "OSW/SteamAPI.h"
+#include "OSW/SteamclientAPI.h"
+
 
 @implementation SteamInterface
 #pragma mark singleton inmplemetation
