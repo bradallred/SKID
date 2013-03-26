@@ -136,7 +136,7 @@
 	if (steamAgent && [steamAgent steamIsRunning]) {
 		NSLog(@"Steam Connection established.");
 
-		NSString* appSupportPath = [NSString stringWithString:@"~/Library/Application Support"];
+		NSString* appSupportPath = @"~/Library/Application Support";
 		NSDictionary* steamApps = [[NSDictionary dictionaryWithContentsOfVDFFile:[NSString stringWithFormat:@"%@/Steam/registry.vdf", appSupportPath]]  valueForKeyPath:@"Registry.HKCU.Software.Valve.Steam.apps"];
 
 		//NSLog(@"Steam apps:\n%@", [steamApps description]);
