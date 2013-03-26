@@ -77,23 +77,23 @@
 		A24C678D1470714000539F28 /* Skid.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Skid.m; sourceTree = "<group>"; };
 		A24C678F1470714000539F28 /* Skid.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Skid.tiff; sourceTree = "<group>"; };
 		A24C67921470714000539F28 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Skid.xib; sourceTree = "<group>"; };
-		A24C679914709B0700539F28 /* SKID_PreferenceCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKID_PreferenceCoordinator.h; sourceTree = "<group>"; };
-		A24C679A14709B0700539F28 /* SKID_PreferenceCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKID_PreferenceCoordinator.m; sourceTree = "<group>"; };
+		A24C679914709B0700539F28 /* SKID_PreferenceCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKID_PreferenceCoordinator.h; path = ../SKID_PreferenceCoordinator.h; sourceTree = "<group>"; };
+		A24C679A14709B0700539F28 /* SKID_PreferenceCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKID_PreferenceCoordinator.m; path = ../SKID_PreferenceCoordinator.m; sourceTree = "<group>"; };
 		A24C67B31470B3C600539F28 /* SKID_Agent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SKID_Agent.mm; sourceTree = "<group>"; };
 		A24C67B61470C27A00539F28 /* SKID_Assistant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKID_Assistant.h; sourceTree = "<group>"; };
 		A24C67B71470C27A00539F28 /* SKID_Assistant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKID_Assistant.m; sourceTree = "<group>"; };
 		A24C67C71471F79B00539F28 /* SkidAgent */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SkidAgent; sourceTree = BUILT_PRODUCTS_DIR; };
 		A24C67C91471F79B00539F28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A24C67CF1471F79B00539F28 /* SkidAgent-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SkidAgent-Prefix.pch"; sourceTree = "<group>"; };
-		A24C67D71471F84B00539F28 /* SKID_AssistantProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKID_AssistantProtocol.h; sourceTree = "<group>"; };
-		A2BB53B91489DEAD00E44FF7 /* SteamService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SteamService.h; sourceTree = "<group>"; };
-		A2CC8634148B095700DAC02F /* SKID_ApplicationFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKID_ApplicationFilters.h; sourceTree = "<group>"; };
-		A2CC8635148B095700DAC02F /* SKID_ApplicationFilters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKID_ApplicationFilters.m; sourceTree = "<group>"; };
-		A2E798461484484000B15DF4 /* SKID_GLOBALS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKID_GLOBALS.h; sourceTree = "<group>"; };
-		A2E7984C148454B500B15DF4 /* NSDictionary+VDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+VDF.h"; sourceTree = "<group>"; };
-		A2E7984D148454B500B15DF4 /* NSDictionary+VDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+VDF.m"; sourceTree = "<group>"; };
-		A2E79850148458B700B15DF4 /* SteamInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SteamInterface.h; sourceTree = "<group>"; };
-		A2E79851148458B700B15DF4 /* SteamInterface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SteamInterface.mm; sourceTree = "<group>"; };
+		A24C67D71471F84B00539F28 /* SKID_AssistantProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKID_AssistantProtocol.h; path = ../SKID_AssistantProtocol.h; sourceTree = "<group>"; };
+		A2BB53B91489DEAD00E44FF7 /* SteamService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SteamService.h; path = Steam/SteamService.h; sourceTree = "<group>"; };
+		A2CC8634148B095700DAC02F /* SKID_ApplicationFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKID_ApplicationFilters.h; path = ../SKID_ApplicationFilters.h; sourceTree = "<group>"; };
+		A2CC8635148B095700DAC02F /* SKID_ApplicationFilters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKID_ApplicationFilters.m; path = ../SKID_ApplicationFilters.m; sourceTree = "<group>"; };
+		A2E798461484484000B15DF4 /* SKID_GLOBALS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SKID_GLOBALS.h; path = ../SKID_GLOBALS.h; sourceTree = "<group>"; };
+		A2E7984C148454B500B15DF4 /* NSDictionary+VDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+VDF.h"; path = "../NSDictionary+VDF.h"; sourceTree = "<group>"; };
+		A2E7984D148454B500B15DF4 /* NSDictionary+VDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+VDF.m"; path = "../NSDictionary+VDF.m"; sourceTree = "<group>"; };
+		A2E79850148458B700B15DF4 /* SteamInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SteamInterface.h; path = Steam/SteamInterface.h; sourceTree = "<group>"; };
+		A2E79851148458B700B15DF4 /* SteamInterface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SteamInterface.mm; path = Steam/SteamInterface.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,11 +118,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A222EAAF17022CD900F33C2E /* PrefPane */ = {
+			isa = PBXGroup;
+			children = (
+				A24C67861470714000539F28 /* Supporting Files */,
+				A24C678C1470714000539F28 /* Skid.h */,
+				A24C678D1470714000539F28 /* Skid.m */,
+			);
+			name = PrefPane;
+			sourceTree = "<group>";
+		};
+		A222EAB017022CEB00F33C2E /* Steam */ = {
+			isa = PBXGroup;
+			children = (
+				A2E79850148458B700B15DF4 /* SteamInterface.h */,
+				A2E79851148458B700B15DF4 /* SteamInterface.mm */,
+				A2BB53B91489DEAD00E44FF7 /* SteamService.h */,
+			);
+			name = Steam;
+			sourceTree = "<group>";
+		};
 		A24C676D1470713F00539F28 = {
 			isa = PBXGroup;
 			children = (
 				A24C67851470714000539F28 /* Skid */,
-				A24C67CB1471F79B00539F28 /* SkidAgent */,
 				A24C677C1470713F00539F28 /* Frameworks */,
 				A24C677B1470713F00539F28 /* Products */,
 			);
@@ -162,24 +181,15 @@
 			isa = PBXGroup;
 			children = (
 				A2E7984C148454B500B15DF4 /* NSDictionary+VDF.h */,
-				A2E79850148458B700B15DF4 /* SteamInterface.h */,
-				A2BB53B91489DEAD00E44FF7 /* SteamService.h */,
-				A2E79851148458B700B15DF4 /* SteamInterface.mm */,
 				A2E7984D148454B500B15DF4 /* NSDictionary+VDF.m */,
-				A24C678C1470714000539F28 /* Skid.h */,
+				A2CC8634148B095700DAC02F /* SKID_ApplicationFilters.h */,
+				A2CC8635148B095700DAC02F /* SKID_ApplicationFilters.m */,
 				A24C67D71471F84B00539F28 /* SKID_AssistantProtocol.h */,
 				A2E798461484484000B15DF4 /* SKID_GLOBALS.h */,
 				A24C679914709B0700539F28 /* SKID_PreferenceCoordinator.h */,
 				A24C679A14709B0700539F28 /* SKID_PreferenceCoordinator.m */,
-				A24C678D1470714000539F28 /* Skid.m */,
-				A24C678F1470714000539F28 /* Skid.tiff */,
-				A24C67911470714000539F28 /* Skid.xib */,
-				A24C67861470714000539F28 /* Supporting Files */,
-				A24C67B31470B3C600539F28 /* SKID_Agent.mm */,
-				A24C67B61470C27A00539F28 /* SKID_Assistant.h */,
-				A2CC8634148B095700DAC02F /* SKID_ApplicationFilters.h */,
-				A2CC8635148B095700DAC02F /* SKID_ApplicationFilters.m */,
-				A24C67B71470C27A00539F28 /* SKID_Assistant.m */,
+				A222EAAF17022CD900F33C2E /* PrefPane */,
+				A24C67CB1471F79B00539F28 /* SkidAgent */,
 			);
 			path = Skid;
 			sourceTree = "<group>";
@@ -187,9 +197,11 @@
 		A24C67861470714000539F28 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A24C67871470714000539F28 /* Skid-Info.plist */,
 				A24C67881470714000539F28 /* InfoPlist.strings */,
+				A24C67871470714000539F28 /* Skid-Info.plist */,
 				A24C678B1470714000539F28 /* Skid-Prefix.pch */,
+				A24C678F1470714000539F28 /* Skid.tiff */,
+				A24C67911470714000539F28 /* Skid.xib */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -197,10 +209,14 @@
 		A24C67CB1471F79B00539F28 /* SkidAgent */ = {
 			isa = PBXGroup;
 			children = (
+				A24C67B31470B3C600539F28 /* SKID_Agent.mm */,
+				A24C67B61470C27A00539F28 /* SKID_Assistant.h */,
+				A24C67B71470C27A00539F28 /* SKID_Assistant.m */,
+				A222EAB017022CEB00F33C2E /* Steam */,
 				A24C67CE1471F79B00539F28 /* Supporting Files */,
 			);
 			path = SkidAgent;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		A24C67CE1471F79B00539F28 /* Supporting Files */ = {
 			isa = PBXGroup;
