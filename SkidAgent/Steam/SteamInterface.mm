@@ -56,9 +56,13 @@ static SteamInterface *sharedInterface = nil;
     @synchronized(myClass) {
         if (sharedInterface == nil) {
             if (self = [super init]) {
-				//check if the steam api lib is loaded
+				NSLog(@"Creating shared steam interface.");
 
-				if (SteamAPI_Init == NULL || CSteamAPILoader == NULL) {
+				// check if the steam libraries are loaded
+				CSteamAPILoader* loader = new CSteamAPILoader();
+				CreateInterfaceFn factory = loader->GetSteam3Factory();
+				delete loader;
+				if (SteamAPI_Init == NULL || factory == NULL) {
 					NSLog(@"steam libraries not loaded!");
 					[self dealloc];
 					return nil;
@@ -67,10 +71,7 @@ static SteamInterface *sharedInterface = nil;
 				// setup will fail if steam isnt running
 				[self pingIPCServer];
 
-				CSteamAPILoader* loader = new CSteamAPILoader();
-				CreateInterfaceFn factory = loader->GetSteam3Factory();
 				_clientEngine = (IClientEngine *)factory( CLIENTENGINE_INTERFACE_VERSION, NULL );
-				delete loader;
 
 				// set SteamAppId to a known app ID (440=TF2)
 				// valve IPC server will only talk to us if we can trick it into
