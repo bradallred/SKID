@@ -290,7 +290,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
-				ORGANIZATIONNAME = "For Every Body";
+				ORGANIZATIONNAME = "";
 			};
 			buildConfigurationList = A24C67721470713F00539F28 /* Build configuration list for PBXProject "Skid" */;
 			compatibilityVersion = "Xcode 3.2";
