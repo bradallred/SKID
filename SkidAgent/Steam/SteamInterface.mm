@@ -145,9 +145,22 @@ static SteamInterface *sharedInterface = nil;
 
 - (BOOL)isDLC:(SteamID)steamID
 {
-	// FIXME: this is a hack. I honestly have no idea
-	// how to actually determine this.
-	return (steamID % 10 != 0);
+	if(_clientEngine){
+		IClientApps* apps = _clientEngine->GetIClientApps(SteamAPI_GetHSteamUser(),
+														  SteamAPI_GetHSteamPipe(),
+														  CLIENTAPPS_INTERFACE_VERSION);
+
+		if (apps) {
+			char type[255] = "";
+			apps->GetAppData(steamID, "type", type, 255);
+			if (strcasecmp(type, "DLC")) {
+				return YES;
+			}
+		}else{
+			NSLog(@"Steam interface not responding.");
+		}
+	}
+	return NO;
 }
 
 - (BOOL)steamIsRunning
