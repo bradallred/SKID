@@ -22,7 +22,7 @@
 // this is actually a C++ class
 // I was having compile problems trying to actually use C++ syntax
 struct CSteamAPIContext;
-typedef struct CSteamAPIContext CSteamAPIContext;
+typedef struct IClientEngine IClientEngine;
 //class CSteamAPIContext;
 
 @interface SteamInterface : NSObject <SteamService>
@@ -30,7 +30,7 @@ typedef struct CSteamAPIContext CSteamAPIContext;
 	@private
 	NSConnection* _serviceConnection;
 	//C++
-	CSteamAPIContext* g_SteamContext;
+	IClientEngine* _clientEngine;
 }
 + (SteamInterface*)sharedInterface;
 

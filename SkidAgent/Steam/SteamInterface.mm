@@ -58,23 +58,29 @@ static SteamInterface *sharedInterface = nil;
             if (self = [super init]) {
 				//check if the steam api lib is loaded
 
-				if (SteamAPI_InitSafe == NULL) {
-					NSLog(@"steam library not loaded!");
+				if (SteamAPI_Init == NULL || CSteamAPILoader == NULL) {
+					NSLog(@"steam libraries not loaded!");
 					[self dealloc];
 					return nil;
 				}
 				// WARNING: even with IPC server running
 				// setup will fail if steam isnt running
 				[self pingIPCServer];
-				
+
+				CSteamAPILoader* loader = new CSteamAPILoader();
+				CreateInterfaceFn factory = loader->GetSteam3Factory();
+				_clientEngine = (IClientEngine *)factory( CLIENTENGINE_INTERFACE_VERSION, NULL );
+				delete loader;
+
 				// set SteamAppId to a known app ID (440=TF2)
 				// valve IPC server will only talk to us if we can trick it into
 				// thinking we are a steam app
 				BOOL envSet = setenv("SteamAppId", "440", YES);
 				if (envSet != 0) NSLog(@"couldnt set app id");
 				//set up communication with IPC server
-				g_SteamContext = new CSteamAPIContext();
-				SteamAPI_InitSafe();
+				if (!SteamAPI_Init()) {
+					NSLog(@"steam api initialization failed!");
+				}
 				//dont need to pose as this app anymore
 				unsetenv("SteamAppId");
 				
@@ -98,7 +104,7 @@ static SteamInterface *sharedInterface = nil;
 - (void)dealloc
 {
 	SteamAPI_Shutdown();
-	delete g_SteamContext;
+	[super dealloc];
 }
 
 - (id)copyWithZone:(NSZone *)zone { return self; }
@@ -146,24 +152,24 @@ static SteamInterface *sharedInterface = nil;
 
 - (BOOL)steamIsRunning
 {
-	return (SteamClient() != NULL);
+	return (_clientEngine != NULL);
 }
 
 - (NSString*)nameForSteamID:(SteamID)steamID
 {
 	//[self pingIPCServer];
 	NSString* ret = [NSString stringWithFormat:@"%i", steamID];
-	if(g_SteamContext->Init()){
-		ISteamApps001 * steamApps001 = (ISteamApps001 *)SteamClient()->GetISteamApps( SteamAPI_GetHSteamUser(), SteamAPI_GetHSteamPipe(), "STEAMAPPS_INTERFACE_VERSION001" );
-		if (steamApps001) {
+	if(_clientEngine){
+		IClientApps* apps = _clientEngine->GetIClientApps(SteamAPI_GetHSteamUser(), SteamAPI_GetHSteamPipe(), CLIENTAPPS_INTERFACE_VERSION);
+
+		if (apps) {
 			char gamename[255] = "";
-			steamApps001->GetAppData(steamID, "name", gamename, 255);
+			apps->GetAppData(steamID, "name", gamename, 255);
 			
 			ret = [NSString stringWithCString:gamename encoding:NSASCIIStringEncoding];
 		}else{
 			NSLog(@"Steam interface not responding.");
 		}
-		g_SteamContext->Clear();
 	}
 	NSLog(@"%i = %@", steamID, ret);
 	return ret;
