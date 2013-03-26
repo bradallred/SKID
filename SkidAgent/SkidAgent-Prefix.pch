@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'SkidAgent' target in the 'SkidAgent' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+#endif

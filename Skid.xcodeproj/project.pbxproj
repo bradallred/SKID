@@ -1,0 +1,530 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A20BCC1B149DCEB60009A39E /* libsteam_api.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A20BCC1A149DCEB60009A39E /* libsteam_api.dylib */; };
+		A24C677E1470714000539F28 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24C677D1470713F00539F28 /* Cocoa.framework */; };
+		A24C67801470714000539F28 /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24C677F1470714000539F28 /* PreferencePanes.framework */; };
+		A24C678A1470714000539F28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A24C67881470714000539F28 /* InfoPlist.strings */; };
+		A24C678E1470714000539F28 /* Skid.m in Sources */ = {isa = PBXBuildFile; fileRef = A24C678D1470714000539F28 /* Skid.m */; };
+		A24C67901470714000539F28 /* Skid.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A24C678F1470714000539F28 /* Skid.tiff */; };
+		A24C67931470714000539F28 /* Skid.xib in Resources */ = {isa = PBXBuildFile; fileRef = A24C67911470714000539F28 /* Skid.xib */; };
+		A24C679B14709B0700539F28 /* SKID_PreferenceCoordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = A24C679914709B0700539F28 /* SKID_PreferenceCoordinator.h */; };
+		A24C679C14709B0700539F28 /* SKID_PreferenceCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = A24C679A14709B0700539F28 /* SKID_PreferenceCoordinator.m */; };
+		A24C67CA1471F79B00539F28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24C67C91471F79B00539F28 /* Foundation.framework */; };
+		A24C67D51471F7CA00539F28 /* SKID_Agent.mm in Sources */ = {isa = PBXBuildFile; fileRef = A24C67B31470B3C600539F28 /* SKID_Agent.mm */; };
+		A24C67D81471F84B00539F28 /* SKID_AssistantProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A24C67D71471F84B00539F28 /* SKID_AssistantProtocol.h */; };
+		A24C67DD147213FF00539F28 /* SkidAgent in Copy Files */ = {isa = PBXBuildFile; fileRef = A24C67C71471F79B00539F28 /* SkidAgent */; };
+		A2B7FF2E14969273006FB08F /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24C67821470714000539F28 /* AppKit.framework */; };
+		A2B7FF2F14969307006FB08F /* SteamInterface.mm in Sources */ = {isa = PBXBuildFile; fileRef = A2E79851148458B700B15DF4 /* SteamInterface.mm */; };
+		A2B7FF5C1496B245006FB08F /* SKID_Assistant.m in Sources */ = {isa = PBXBuildFile; fileRef = A24C67B71470C27A00539F28 /* SKID_Assistant.m */; };
+		A2B7FF5D1496B289006FB08F /* SKID_PreferenceCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = A24C679A14709B0700539F28 /* SKID_PreferenceCoordinator.m */; };
+		A2B7FF5E1496B290006FB08F /* SKID_ApplicationFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CC8635148B095700DAC02F /* SKID_ApplicationFilters.m */; };
+		A2BB53BA1489DEAD00E44FF7 /* SteamService.h in Headers */ = {isa = PBXBuildFile; fileRef = A2BB53B91489DEAD00E44FF7 /* SteamService.h */; };
+		A2E7984E148454B500B15DF4 /* NSDictionary+VDF.h in Headers */ = {isa = PBXBuildFile; fileRef = A2E7984C148454B500B15DF4 /* NSDictionary+VDF.h */; };
+		A2E7984F148454B500B15DF4 /* NSDictionary+VDF.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E7984D148454B500B15DF4 /* NSDictionary+VDF.m */; };
+		A2EE3F50149154BB00BBA30D /* SKID_ApplicationFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CC8635148B095700DAC02F /* SKID_ApplicationFilters.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A24C67D91471F9ED00539F28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A24C676F1470713F00539F28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A24C67C61471F79B00539F28;
+			remoteInfo = SkidAgent;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A24C67C51471F79B00539F28 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = usr/share/man/man1;
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A24C67DC147213EB00539F28 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				A24C67DD147213FF00539F28 /* SkidAgent in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A20BCC19149DC9D80009A39E /* CGSAccessibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSAccessibility.h; sourceTree = "<group>"; };
+		A20BCC1A149DCEB60009A39E /* libsteam_api.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsteam_api.dylib; path = "../../../Library/Application Support/Steam/SteamApps/error_500/team fortress 2/bin/libsteam_api.dylib"; sourceTree = "<group>"; };
+		A24C677A1470713F00539F28 /* Skid.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Skid.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
+		A24C677D1470713F00539F28 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		A24C677F1470714000539F28 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
+		A24C67821470714000539F28 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		A24C67831470714000539F28 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A24C67841470714000539F28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A24C67871470714000539F28 /* Skid-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Skid-Info.plist"; sourceTree = "<group>"; };
+		A24C67891470714000539F28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A24C678B1470714000539F28 /* Skid-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Skid-Prefix.pch"; sourceTree = "<group>"; };
+		A24C678C1470714000539F28 /* Skid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Skid.h; sourceTree = "<group>"; };
+		A24C678D1470714000539F28 /* Skid.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Skid.m; sourceTree = "<group>"; };
+		A24C678F1470714000539F28 /* Skid.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Skid.tiff; sourceTree = "<group>"; };
+		A24C67921470714000539F28 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Skid.xib; sourceTree = "<group>"; };
+		A24C679914709B0700539F28 /* SKID_PreferenceCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKID_PreferenceCoordinator.h; sourceTree = "<group>"; };
+		A24C679A14709B0700539F28 /* SKID_PreferenceCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKID_PreferenceCoordinator.m; sourceTree = "<group>"; };
+		A24C67B31470B3C600539F28 /* SKID_Agent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SKID_Agent.mm; sourceTree = "<group>"; };
+		A24C67B61470C27A00539F28 /* SKID_Assistant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKID_Assistant.h; sourceTree = "<group>"; };
+		A24C67B71470C27A00539F28 /* SKID_Assistant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKID_Assistant.m; sourceTree = "<group>"; };
+		A24C67C71471F79B00539F28 /* SkidAgent */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SkidAgent; sourceTree = BUILT_PRODUCTS_DIR; };
+		A24C67C91471F79B00539F28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A24C67CC1471F79B00539F28 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A24C67CF1471F79B00539F28 /* SkidAgent-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SkidAgent-Prefix.pch"; sourceTree = "<group>"; };
+		A24C67D01471F79B00539F28 /* SkidAgent.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SkidAgent.1; sourceTree = "<group>"; };
+		A24C67D71471F84B00539F28 /* SKID_AssistantProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKID_AssistantProtocol.h; sourceTree = "<group>"; };
+		A2B7FEF1149586E6006FB08F /* ISteamApps001.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISteamApps001.h; sourceTree = "<group>"; };
+		A2B7FEFB1495977F006FB08F /* steam_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = steam_api.h; path = "../../../../Library/Application Support/CrossOver/Bottles/steam/drive_c/Program Files/Steam/steamapps/common/alien swarm/sdk_src/public/steam/steam_api.h"; sourceTree = "<group>"; };
+		A2B7FF011496730C006FB08F /* libsteam_api.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsteam_api.dylib; path = ../../PASEDO/libsteam_api.dylib; sourceTree = "<group>"; };
+		A2B7FF04149686EE006FB08F /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		A2BB53B91489DEAD00E44FF7 /* SteamService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SteamService.h; sourceTree = "<group>"; };
+		A2CC8634148B095700DAC02F /* SKID_ApplicationFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKID_ApplicationFilters.h; sourceTree = "<group>"; };
+		A2CC8635148B095700DAC02F /* SKID_ApplicationFilters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKID_ApplicationFilters.m; sourceTree = "<group>"; };
+		A2E798461484484000B15DF4 /* SKID_GLOBALS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKID_GLOBALS.h; sourceTree = "<group>"; };
+		A2E7984C148454B500B15DF4 /* NSDictionary+VDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+VDF.h"; sourceTree = "<group>"; };
+		A2E7984D148454B500B15DF4 /* NSDictionary+VDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+VDF.m"; sourceTree = "<group>"; };
+		A2E79850148458B700B15DF4 /* SteamInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SteamInterface.h; sourceTree = "<group>"; };
+		A2E79851148458B700B15DF4 /* SteamInterface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SteamInterface.mm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A24C67751470713F00539F28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A24C677E1470714000539F28 /* Cocoa.framework in Frameworks */,
+				A24C67801470714000539F28 /* PreferencePanes.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A24C67C41471F79B00539F28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A20BCC1B149DCEB60009A39E /* libsteam_api.dylib in Frameworks */,
+				A2B7FF2E14969273006FB08F /* AppKit.framework in Frameworks */,
+				A24C67CA1471F79B00539F28 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A24C676D1470713F00539F28 = {
+			isa = PBXGroup;
+			children = (
+				A20BCC1A149DCEB60009A39E /* libsteam_api.dylib */,
+				A20BCC19149DC9D80009A39E /* CGSAccessibility.h */,
+				A2B7FF04149686EE006FB08F /* Carbon.framework */,
+				A2B7FF011496730C006FB08F /* libsteam_api.dylib */,
+				A24C67851470714000539F28 /* Skid */,
+				A24C67CB1471F79B00539F28 /* SkidAgent */,
+				A24C677C1470713F00539F28 /* Frameworks */,
+				A24C677B1470713F00539F28 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A24C677B1470713F00539F28 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A24C677A1470713F00539F28 /* Skid.prefPane */,
+				A24C67C71471F79B00539F28 /* SkidAgent */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A24C677C1470713F00539F28 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A24C677D1470713F00539F28 /* Cocoa.framework */,
+				A24C677F1470714000539F28 /* PreferencePanes.framework */,
+				A24C67C91471F79B00539F28 /* Foundation.framework */,
+				A24C67811470714000539F28 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A24C67811470714000539F28 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A24C67821470714000539F28 /* AppKit.framework */,
+				A24C67831470714000539F28 /* CoreData.framework */,
+				A24C67841470714000539F28 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		A24C67851470714000539F28 /* Skid */ = {
+			isa = PBXGroup;
+			children = (
+				A2E7984C148454B500B15DF4 /* NSDictionary+VDF.h */,
+				A2B7FEF1149586E6006FB08F /* ISteamApps001.h */,
+				A2E79850148458B700B15DF4 /* SteamInterface.h */,
+				A2BB53B91489DEAD00E44FF7 /* SteamService.h */,
+				A2E79851148458B700B15DF4 /* SteamInterface.mm */,
+				A2E7984D148454B500B15DF4 /* NSDictionary+VDF.m */,
+				A2B7FEFB1495977F006FB08F /* steam_api.h */,
+				A24C678C1470714000539F28 /* Skid.h */,
+				A24C67D71471F84B00539F28 /* SKID_AssistantProtocol.h */,
+				A2E798461484484000B15DF4 /* SKID_GLOBALS.h */,
+				A24C679914709B0700539F28 /* SKID_PreferenceCoordinator.h */,
+				A24C679A14709B0700539F28 /* SKID_PreferenceCoordinator.m */,
+				A24C678D1470714000539F28 /* Skid.m */,
+				A24C678F1470714000539F28 /* Skid.tiff */,
+				A24C67911470714000539F28 /* Skid.xib */,
+				A24C67861470714000539F28 /* Supporting Files */,
+				A24C67B31470B3C600539F28 /* SKID_Agent.mm */,
+				A24C67B61470C27A00539F28 /* SKID_Assistant.h */,
+				A2CC8634148B095700DAC02F /* SKID_ApplicationFilters.h */,
+				A2CC8635148B095700DAC02F /* SKID_ApplicationFilters.m */,
+				A24C67B71470C27A00539F28 /* SKID_Assistant.m */,
+			);
+			path = Skid;
+			sourceTree = "<group>";
+		};
+		A24C67861470714000539F28 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A24C67871470714000539F28 /* Skid-Info.plist */,
+				A24C67881470714000539F28 /* InfoPlist.strings */,
+				A24C678B1470714000539F28 /* Skid-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A24C67CB1471F79B00539F28 /* SkidAgent */ = {
+			isa = PBXGroup;
+			children = (
+				A24C67CC1471F79B00539F28 /* main.m */,
+				A24C67D01471F79B00539F28 /* SkidAgent.1 */,
+				A24C67CE1471F79B00539F28 /* Supporting Files */,
+			);
+			path = SkidAgent;
+			sourceTree = "<group>";
+		};
+		A24C67CE1471F79B00539F28 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A24C67CF1471F79B00539F28 /* SkidAgent-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A24C67761470713F00539F28 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A24C679B14709B0700539F28 /* SKID_PreferenceCoordinator.h in Headers */,
+				A24C67D81471F84B00539F28 /* SKID_AssistantProtocol.h in Headers */,
+				A2E7984E148454B500B15DF4 /* NSDictionary+VDF.h in Headers */,
+				A2BB53BA1489DEAD00E44FF7 /* SteamService.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A24C67791470713F00539F28 /* Skid */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A24C67961470714000539F28 /* Build configuration list for PBXNativeTarget "Skid" */;
+			buildPhases = (
+				A24C67741470713F00539F28 /* Sources */,
+				A24C67751470713F00539F28 /* Frameworks */,
+				A24C67761470713F00539F28 /* Headers */,
+				A24C67771470713F00539F28 /* Resources */,
+				A24C67DC147213EB00539F28 /* Copy Files */,
+				A24C67781470713F00539F28 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A24C67DA1471F9ED00539F28 /* PBXTargetDependency */,
+			);
+			name = Skid;
+			productName = Skid;
+			productReference = A24C677A1470713F00539F28 /* Skid.prefPane */;
+			productType = "com.apple.product-type.bundle";
+		};
+		A24C67C61471F79B00539F28 /* SkidAgent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A24C67D21471F79B00539F28 /* Build configuration list for PBXNativeTarget "SkidAgent" */;
+			buildPhases = (
+				A24C67C31471F79B00539F28 /* Sources */,
+				A24C67C41471F79B00539F28 /* Frameworks */,
+				A24C67C51471F79B00539F28 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SkidAgent;
+			productName = SkidAgent;
+			productReference = A24C67C71471F79B00539F28 /* SkidAgent */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A24C676F1470713F00539F28 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "For Every Body";
+			};
+			buildConfigurationList = A24C67721470713F00539F28 /* Build configuration list for PBXProject "Skid" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A24C676D1470713F00539F28;
+			productRefGroup = A24C677B1470713F00539F28 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A24C67791470713F00539F28 /* Skid */,
+				A24C67C61471F79B00539F28 /* SkidAgent */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A24C67771470713F00539F28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A24C678A1470714000539F28 /* InfoPlist.strings in Resources */,
+				A24C67901470714000539F28 /* Skid.tiff in Resources */,
+				A24C67931470714000539F28 /* Skid.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		A24C67781470713F00539F28 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A24C67741470713F00539F28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A24C678E1470714000539F28 /* Skid.m in Sources */,
+				A24C679C14709B0700539F28 /* SKID_PreferenceCoordinator.m in Sources */,
+				A2E7984F148454B500B15DF4 /* NSDictionary+VDF.m in Sources */,
+				A2EE3F50149154BB00BBA30D /* SKID_ApplicationFilters.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A24C67C31471F79B00539F28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2B7FF5E1496B290006FB08F /* SKID_ApplicationFilters.m in Sources */,
+				A2B7FF5D1496B289006FB08F /* SKID_PreferenceCoordinator.m in Sources */,
+				A2B7FF5C1496B245006FB08F /* SKID_Assistant.m in Sources */,
+				A2B7FF2F14969307006FB08F /* SteamInterface.mm in Sources */,
+				A24C67D51471F7CA00539F28 /* SKID_Agent.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A24C67DA1471F9ED00539F28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A24C67C61471F79B00539F28 /* SkidAgent */;
+			targetProxy = A24C67D91471F9ED00539F28 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A24C67881470714000539F28 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A24C67891470714000539F28 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A24C67911470714000539F28 /* Skid.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A24C67921470714000539F28 /* en */,
+			);
+			name = Skid.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A24C67941470714000539F28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A24C67951470714000539F28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A24C67971470714000539F28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Skid/Skid-Prefix.pch";
+				INFOPLIST_FILE = "Skid/Skid-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = prefPane;
+			};
+			name = Debug;
+		};
+		A24C67981470714000539F28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Skid/Skid-Prefix.pch";
+				INFOPLIST_FILE = "Skid/Skid-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = prefPane;
+			};
+			name = Release;
+		};
+		A24C67D31471F79B00539F28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SkidAgent/SkidAgent-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Skid\"",
+					"\"$(SRCROOT)/../../PASEDO\"",
+					"\"$(SRCROOT)/../../../Library/Application Support/Steam/SteamApps/error_500/team fortress 2/bin\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = steam_sdk;
+				VALID_ARCHS = i386;
+			};
+			name = Debug;
+		};
+		A24C67D41471F79B00539F28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SkidAgent/SkidAgent-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Skid\"",
+					"\"$(SRCROOT)/../../PASEDO\"",
+					"\"$(SRCROOT)/../../../Library/Application Support/Steam/SteamApps/error_500/team fortress 2/bin\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = steam_sdk;
+				VALID_ARCHS = i386;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A24C67721470713F00539F28 /* Build configuration list for PBXProject "Skid" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A24C67941470714000539F28 /* Debug */,
+				A24C67951470714000539F28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A24C67961470714000539F28 /* Build configuration list for PBXNativeTarget "Skid" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A24C67971470714000539F28 /* Debug */,
+				A24C67981470714000539F28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A24C67D21471F79B00539F28 /* Build configuration list for PBXNativeTarget "SkidAgent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A24C67D31471F79B00539F28 /* Debug */,
+				A24C67D41471F79B00539F28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A24C676F1470713F00539F28 /* Project object */;
+}
