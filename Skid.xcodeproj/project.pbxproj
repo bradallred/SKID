@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A20BCC1B149DCEB60009A39E /* libsteam_api.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A20BCC1A149DCEB60009A39E /* libsteam_api.dylib */; };
 		A24C677E1470714000539F28 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24C677D1470713F00539F28 /* Cocoa.framework */; };
 		A24C67801470714000539F28 /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24C677F1470714000539F28 /* PreferencePanes.framework */; };
 		A24C678A1470714000539F28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A24C67881470714000539F28 /* InfoPlist.strings */; };
@@ -65,8 +64,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A20BCC19149DC9D80009A39E /* CGSAccessibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSAccessibility.h; sourceTree = "<group>"; };
-		A20BCC1A149DCEB60009A39E /* libsteam_api.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsteam_api.dylib; path = "../../../Library/Application Support/Steam/SteamApps/error_500/team fortress 2/bin/libsteam_api.dylib"; sourceTree = "<group>"; };
 		A24C677A1470713F00539F28 /* Skid.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Skid.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		A24C677D1470713F00539F28 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A24C677F1470714000539F28 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
@@ -87,14 +84,8 @@
 		A24C67B71470C27A00539F28 /* SKID_Assistant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKID_Assistant.m; sourceTree = "<group>"; };
 		A24C67C71471F79B00539F28 /* SkidAgent */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SkidAgent; sourceTree = BUILT_PRODUCTS_DIR; };
 		A24C67C91471F79B00539F28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		A24C67CC1471F79B00539F28 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A24C67CF1471F79B00539F28 /* SkidAgent-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SkidAgent-Prefix.pch"; sourceTree = "<group>"; };
-		A24C67D01471F79B00539F28 /* SkidAgent.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SkidAgent.1; sourceTree = "<group>"; };
 		A24C67D71471F84B00539F28 /* SKID_AssistantProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKID_AssistantProtocol.h; sourceTree = "<group>"; };
-		A2B7FEF1149586E6006FB08F /* ISteamApps001.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISteamApps001.h; sourceTree = "<group>"; };
-		A2B7FEFB1495977F006FB08F /* steam_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = steam_api.h; path = "../../../../Library/Application Support/CrossOver/Bottles/steam/drive_c/Program Files/Steam/steamapps/common/alien swarm/sdk_src/public/steam/steam_api.h"; sourceTree = "<group>"; };
-		A2B7FF011496730C006FB08F /* libsteam_api.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsteam_api.dylib; path = ../../PASEDO/libsteam_api.dylib; sourceTree = "<group>"; };
-		A2B7FF04149686EE006FB08F /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		A2BB53B91489DEAD00E44FF7 /* SteamService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SteamService.h; sourceTree = "<group>"; };
 		A2CC8634148B095700DAC02F /* SKID_ApplicationFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKID_ApplicationFilters.h; sourceTree = "<group>"; };
 		A2CC8635148B095700DAC02F /* SKID_ApplicationFilters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKID_ApplicationFilters.m; sourceTree = "<group>"; };
@@ -119,7 +110,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A20BCC1B149DCEB60009A39E /* libsteam_api.dylib in Frameworks */,
 				A2B7FF2E14969273006FB08F /* AppKit.framework in Frameworks */,
 				A24C67CA1471F79B00539F28 /* Foundation.framework in Frameworks */,
 			);
@@ -131,10 +121,6 @@
 		A24C676D1470713F00539F28 = {
 			isa = PBXGroup;
 			children = (
-				A20BCC1A149DCEB60009A39E /* libsteam_api.dylib */,
-				A20BCC19149DC9D80009A39E /* CGSAccessibility.h */,
-				A2B7FF04149686EE006FB08F /* Carbon.framework */,
-				A2B7FF011496730C006FB08F /* libsteam_api.dylib */,
 				A24C67851470714000539F28 /* Skid */,
 				A24C67CB1471F79B00539F28 /* SkidAgent */,
 				A24C677C1470713F00539F28 /* Frameworks */,
@@ -176,12 +162,10 @@
 			isa = PBXGroup;
 			children = (
 				A2E7984C148454B500B15DF4 /* NSDictionary+VDF.h */,
-				A2B7FEF1149586E6006FB08F /* ISteamApps001.h */,
 				A2E79850148458B700B15DF4 /* SteamInterface.h */,
 				A2BB53B91489DEAD00E44FF7 /* SteamService.h */,
 				A2E79851148458B700B15DF4 /* SteamInterface.mm */,
 				A2E7984D148454B500B15DF4 /* NSDictionary+VDF.m */,
-				A2B7FEFB1495977F006FB08F /* steam_api.h */,
 				A24C678C1470714000539F28 /* Skid.h */,
 				A24C67D71471F84B00539F28 /* SKID_AssistantProtocol.h */,
 				A2E798461484484000B15DF4 /* SKID_GLOBALS.h */,
@@ -213,8 +197,6 @@
 		A24C67CB1471F79B00539F28 /* SkidAgent */ = {
 			isa = PBXGroup;
 			children = (
-				A24C67CC1471F79B00539F28 /* main.m */,
-				A24C67D01471F79B00539F28 /* SkidAgent.1 */,
 				A24C67CE1471F79B00539F28 /* Supporting Files */,
 			);
 			path = SkidAgent;
@@ -390,7 +372,6 @@
 		A24C67941470714000539F28 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -416,7 +397,6 @@
 		A24C67951470714000539F28 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -459,17 +439,16 @@
 		A24C67D31471F79B00539F28 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SkidAgent/SkidAgent-Prefix.pch";
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Skid\"",
-					"\"$(SRCROOT)/../../PASEDO\"",
-					"\"$(SRCROOT)/../../../Library/Application Support/Steam/SteamApps/error_500/team fortress 2/bin\"",
+					"\"~/Library/Application Support/Steam/SteamApps/error_500/team fortress 2/bin\"",
+					"\"$(SYSTEM_APPS_DIR)/Steam.app/Contents/MacOS/osx32\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = steam_sdk;
+				USER_HEADER_SEARCH_PATHS = Steam;
 				VALID_ARCHS = i386;
 			};
 			name = Debug;
@@ -477,17 +456,16 @@
 		A24C67D41471F79B00539F28 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SkidAgent/SkidAgent-Prefix.pch";
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Skid\"",
-					"\"$(SRCROOT)/../../PASEDO\"",
-					"\"$(SRCROOT)/../../../Library/Application Support/Steam/SteamApps/error_500/team fortress 2/bin\"",
+					"\"~/Library/Application Support/Steam/SteamApps/error_500/team fortress 2/bin\"",
+					"\"$(SYSTEM_APPS_DIR)/Steam.app/Contents/MacOS/osx32\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = steam_sdk;
+				USER_HEADER_SEARCH_PATHS = Steam;
 				VALID_ARCHS = i386;
 			};
 			name = Release;
