@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A222EAB21702604700F33C2E /* libsteam.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A222EAB11702604700F33C2E /* libsteam.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A222EAB41702609C00F33C2E /* libsteam_api.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A222EAB31702609C00F33C2E /* libsteam_api.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A24C677E1470714000539F28 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24C677D1470713F00539F28 /* Cocoa.framework */; };
 		A24C67801470714000539F28 /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24C677F1470714000539F28 /* PreferencePanes.framework */; };
 		A24C678A1470714000539F28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A24C67881470714000539F28 /* InfoPlist.strings */; };
@@ -64,6 +66,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A222EAB11702604700F33C2E /* libsteam.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsteam.dylib; path = /Applications/Steam.app/Contents/MacOS/osx32/libsteam.dylib; sourceTree = "<absolute>"; };
+		A222EAB31702609C00F33C2E /* libsteam_api.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsteam_api.dylib; path = "/Users/brad/Library/Application Support/Steam/SteamApps/common/Portal 2/bin/libsteam_api.dylib"; sourceTree = "<absolute>"; };
 		A24C677A1470713F00539F28 /* Skid.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Skid.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		A24C677D1470713F00539F28 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A24C677F1470714000539F28 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
@@ -110,6 +114,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A222EAB41702609C00F33C2E /* libsteam_api.dylib in Frameworks */,
+				A222EAB21702604700F33C2E /* libsteam.dylib in Frameworks */,
 				A2B7FF2E14969273006FB08F /* AppKit.framework in Frameworks */,
 				A24C67CA1471F79B00539F28 /* Foundation.framework in Frameworks */,
 			);
@@ -131,6 +137,8 @@
 		A222EAB017022CEB00F33C2E /* Steam */ = {
 			isa = PBXGroup;
 			children = (
+				A222EAB31702609C00F33C2E /* libsteam_api.dylib */,
+				A222EAB11702604700F33C2E /* libsteam.dylib */,
 				A2E79850148458B700B15DF4 /* SteamInterface.h */,
 				A2E79851148458B700B15DF4 /* SteamInterface.mm */,
 				A2BB53B91489DEAD00E44FF7 /* SteamService.h */,
@@ -462,6 +470,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"\"~/Library/Application Support/Steam/SteamApps/error_500/team fortress 2/bin\"",
 					"\"$(SYSTEM_APPS_DIR)/Steam.app/Contents/MacOS/osx32\"",
+					"\"$(SRCROOT)/../../Library/Application Support/Steam/SteamApps/common/Portal 2/bin\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = Steam;
@@ -479,6 +488,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"\"~/Library/Application Support/Steam/SteamApps/error_500/team fortress 2/bin\"",
 					"\"$(SYSTEM_APPS_DIR)/Steam.app/Contents/MacOS/osx32\"",
+					"\"$(SRCROOT)/../../Library/Application Support/Steam/SteamApps/common/Portal 2/bin\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = Steam;
