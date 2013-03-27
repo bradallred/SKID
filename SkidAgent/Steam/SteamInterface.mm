@@ -154,7 +154,7 @@ static SteamInterface *sharedInterface = nil;
 		if (apps) {
 			char type[255] = "";
 			apps->GetAppData(steamID, "type", type, 255);
-			if (strcasecmp(type, "DLC")) {
+			if (strcasecmp(type, "DLC") == 0) {
 				return YES;
 			}
 		}else{
