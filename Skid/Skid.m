@@ -183,6 +183,8 @@
 				[steamAppSource addObject:appNode];
 			}
 		}
+		NSArray* sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+		[steamAppSource sortUsingDescriptors:sortDescriptors];
 
 		[_applicationSources addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"Steam Applications", @"name",
 							   steamAppSource, @"children",
