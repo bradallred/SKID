@@ -564,9 +564,8 @@ static SKID_Assistant *sharedAssistant = nil;
 			ProcessSerialNumber psn = { 0, kCurrentProcess};
 			GetFrontProcess(&psn);
 
-			CGEventSetIntegerValueField(newCGEvent, kCGEventTargetProcessSerialNumber, *(int64_t*)&psn);
 			CGEventSetIntegerValueField(newCGEvent, kCGEventTargetUnixProcessID, [activeApp processIdentifier]);
-			
+			CGEventSetIntegerValueField(newCGEvent, kCGEventTargetProcessSerialNumber, psn.lowLongOfPSN);
 			//CGEventSetIntegerValueField(newCGEvent, kCGEventSourceUserData, *(int64_t*)&psn);
 			
 			CGEventPostToPSN(&psn, newCGEvent);
