@@ -110,6 +110,7 @@
 	self = [super initWithBundle:bundle];
 	if (self)
 	{
+		_agent = nil;
 		_preferenceCoordinator = [[SKID_PreferenceCoordinator alloc] init];
 	}
 	return self;
@@ -321,8 +322,12 @@
 		if (!_agent) return;
 		NSLog(@"Disconnecting from agent...");
 		NSConnection* con = [(NSDistantObject *)_agent connectionForProxy];
-		if ([con isValid]) [con invalidate];// sends notification to ConnectionChanged
-		else [_agent release];
+		if ([con isValid]) {
+			[con invalidate];// sends notification to ConnectionChanged
+		} else {
+			[_agent release];
+			_agent = nil;
+		}
 	}
 }
 
