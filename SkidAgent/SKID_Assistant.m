@@ -125,11 +125,19 @@ static SKID_Assistant *sharedAssistant = nil;
 
 				_arPool = [[NSAutoreleasePool alloc] init];
 
-				_functionKeyLookup = [[NSDictionary alloc] initWithObjectsAndKeys:N(SKID_KEY_F1), SKID_EV_DATA_F1, N(SKID_KEY_F2), SKID_EV_DATA_F2,
-									  N(SKID_KEY_F3), S(SKID_KEY_EXPOSE), N(SKID_KEY_F4), S(SKID_KEY_DASHBOARD), 
-									  N(SKID_KEY_F5), SKID_EV_DATA_F5, N(SKID_KEY_F6), SKID_EV_DATA_F6,
-									  N(SKID_KEY_F7), SKID_EV_DATA_F7, N(SKID_KEY_F8), SKID_EV_DATA_F8, N(SKID_KEY_F9), SKID_EV_DATA_F9, 
-									  N(SKID_KEY_F10), SKID_EV_DATA_F10, N(SKID_KEY_F11), SKID_EV_DATA_F11, N(SKID_KEY_F12), SKID_EV_DATA_F12, nil];
+				_functionKeyLookup = [[NSDictionary alloc] initWithObjectsAndKeys:
+									  @SKID_KEY_F1, SKID_EV_DATA_F1,
+									  @SKID_KEY_F2, SKID_EV_DATA_F2,
+									  @SKID_KEY_F3, S(SKID_KEY_EXPOSE),
+									  @SKID_KEY_F4, S(SKID_KEY_DASHBOARD),
+									  @SKID_KEY_F5, SKID_EV_DATA_F5,
+									  @SKID_KEY_F6, SKID_EV_DATA_F6,
+									  @SKID_KEY_F7, SKID_EV_DATA_F7,
+									  @SKID_KEY_F8, SKID_EV_DATA_F8,
+									  @SKID_KEY_F9, SKID_EV_DATA_F9,
+									  @SKID_KEY_F10, SKID_EV_DATA_F10,
+									  @SKID_KEY_F11, SKID_EV_DATA_F11,
+									  @SKID_KEY_F12, SKID_EV_DATA_F12, nil];
 
 				//we need to capture all key up/down and all mouse up/down
 				_runLoopSource = NULL;

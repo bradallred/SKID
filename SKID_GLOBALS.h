@@ -62,7 +62,6 @@
 #define SKID_DOMAIN @"edu.uvu.skid"
 
 #pragma mark macros
-#define N(X) [NSNumber numberWithInt:X]
 #define S(X) [NSString stringWithFormat:@"0x%04X", X]
 
 #pragma mark typedefs
