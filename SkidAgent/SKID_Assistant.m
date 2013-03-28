@@ -386,6 +386,11 @@ static SKID_Assistant *sharedAssistant = nil;
 		BOOL keyState = NO;
 
 		if (filters && [self willInterceptEvent:event WithFilters:filters]) {
+			pid_t pid = [activeApp processIdentifier];
+			ProcessSerialNumber psn = { 0, kCurrentProcess};
+			GetProcessForPID(pid, &psn);
+			NSAssert(psn.lowLongOfPSN != kNoProcess, @"Could not get PSN for front process.");
+
 			CGEventRef cgEvent = [event CGEvent];
 			// if the event is a special system event from functionn keys we need to 
 			// create a new event, but NOT RELEASE the old one; it is owned by the system.
@@ -431,58 +436,29 @@ static SKID_Assistant *sharedAssistant = nil;
 				//NSArray* windows = (NSArray*)CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly | kCGWindowListExcludeDesktopElements, kCGNullWindowID);
 				NSInteger winID = 0;
 				int cidOut;
-				
 				CGSFindWindowByGeometry(myCid, 0, 1, 0, &mousePoint, &clickPoint, &winID, &cidOut);
-				uint32_t mask = 0;
-				CGSGetWindowEventMask(myCid, winID, &mask);
-				NSLog(@"winid:%i mouse pos: %f, %f win mouse pos: %f, %f event mask:%i", winID, mousePoint.x, mousePoint.y, clickPoint.x, clickPoint.y, mask);
-				/*
-				int tags[2] = { 0, 0 };
-				if (!CGSGetWindowTags(myCid, winID, tags, 32)) {
-					tags[0] = tags[0] | 0x00000800;
-					
-					CGSSetWindowTags(myCid, winID, tags, 32);
+
+				int frontCid;
+				CGSGetConnectionIDForPSN(myCid, &psn, &frontCid);
+				if (cidOut != frontCid) {
+					// only interested in active processes windows
+					return NO;
 				}
-				 */
-				/*
-				BOOL mouseOverAppWin = YES;
-				//(winLvl == kCGNormalWindowLevel || winLvl == kCGStatusWindowLevel)
-				for (NSDictionary* attributes in windows) {
-					//context menus are windows too. lets skip those
-					int winLvl = [[attributes valueForKey:(NSString*)kCGWindowLayer] intValue];
-				 if ([[attributes valueForKey:(NSString*)kCGWindowOwnerPID] intValue] == [activeApp processIdentifier]) {
-						if (!winID && (winLvl == kCGNormalWindowLevel || winLvl == kCGStatusWindowLevel)) {
-							winID = [[attributes valueForKey:(NSString*)kCGWindowNumber] integerValue];
-						}
-						CGRect winRect;
-						CGRectMakeWithDictionaryRepresentation((CFDictionaryRef)[attributes valueForKey:(NSString*)kCGWindowBounds], &winRect);
-						
-						clickPoint.y = clickPoint.y - winRect.origin.y - winRect.size.height;
-						clickPoint.x = clickPoint.x - winRect.origin.x;
-						/*
-						if (clickPoint.y < 0 || clickPoint.y > winRect.size.height || clickPoint.x < 0 || clickPoint.x || winRect.size.width){
-							return NO;
-						}
-						
-						if (clickPoint.y > 0 && clickPoint.y <= winRect.size.height && clickPoint.x > 0 && clickPoint.x <= winRect.size.width){
-							if (!winID){
-								//always send event to first window
-								winID = [[attributes valueForKey:(NSString*)kCGWindowNumber] integerValue];
-								NSLog(@"should send event here:\n%@\n%f", attributes, clickPoint.y);
-							}
-							mouseOverAppWin = YES;
-							break;//we already know we are over at least one of the app windows so break
-						}else{
-							NSLog(@"click: %f, %f window: %f, %f, %f, %f", clickPoint.x, clickPoint.y, winRect.origin.x, winRect.origin.y, winRect.size.height, winRect.size.width);
-						}
-						 *//*
+
+				NSArray* windows = (NSArray*)CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly
+																		| kCGWindowListExcludeDesktopElements
+																		| kCGWindowListOptionOnScreenAboveWindow,
+																		winID);
+				for (NSDictionary* winDict in windows) {
+					// TODO: find out if there is a better way to find this.
+					if ([[winDict valueForKey:(NSString*)kCGWindowOwnerPID] intValue] == pid
+						&& [[winDict valueForKey:(NSString*)kCGWindowAlpha] floatValue] > 0.0
+						&& [[winDict valueForKey:(NSString*)kCGWindowLayer] intValue] == kCGNormalWindowLevel) {
+						// another window has focus
+						return NO;
 					}
 				}
-				if (!mouseOverAppWin) {
-					NSLog(@"event was outside app windows. no interception will take place.");
-					return NO;//click is outside the window so we dont want it.
-				}
-				*/
+
 				if (winID) {
 					//clickPoint = CGEventGetUnflippedLocation(cgEvent);
 					//newCGEvent = CGEventCreateCopy(cgEvent);
@@ -560,12 +536,9 @@ static SKID_Assistant *sharedAssistant = nil;
 					 */
 				}
 			}
-			
-			ProcessSerialNumber psn = { 0, kCurrentProcess};
-			GetFrontProcess(&psn);
 
-			CGEventSetIntegerValueField(newCGEvent, kCGEventTargetUnixProcessID, [activeApp processIdentifier]);
 			CGEventSetIntegerValueField(newCGEvent, kCGEventTargetProcessSerialNumber, psn.lowLongOfPSN);
+			CGEventSetIntegerValueField(newCGEvent, kCGEventTargetUnixProcessID, pid);
 			//CGEventSetIntegerValueField(newCGEvent, kCGEventSourceUserData, *(int64_t*)&psn);
 			
 			CGEventPostToPSN(&psn, newCGEvent);
