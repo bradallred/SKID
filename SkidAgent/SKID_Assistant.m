@@ -380,7 +380,7 @@ static SKID_Assistant *sharedAssistant = nil;
 	}
 
 	//drain and reset the pool for the each non-timeout event.
-	[_arPool drain];//same as release, but will work with GC
+	[_arPool release];
 	_arPool = [[NSAutoreleasePool alloc] init];
 
 	NSEvent* event = nil;
