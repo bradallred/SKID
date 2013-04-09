@@ -230,8 +230,6 @@
 	[self performSelectorInBackground:@selector(agentConnect) withObject:nil];
 	
 	//get a list of all applications
-	NSFileManager* fm = [NSFileManager defaultManager];
-	NSWorkspace* ws = [NSWorkspace sharedWorkspace];
 	NSArray* searchDirs = NSSearchPathForDirectoriesInDomains(NSAllApplicationsDirectory,  NSAllDomainsMask, TRUE);
 	NSEnumerator* dirs = [searchDirs objectEnumerator];
 	NSString* appDir;
@@ -242,26 +240,18 @@
 																	 filteredApps, @"children",
 																	 [NSNumber numberWithInt:NODE_OTHER], @"nodeType", nil]];
 	while (appDir = [dirs nextObject]){
-		NSLog(@"scanning %@", appDir);
-		NSArray* dirItems = [fm contentsOfDirectoryAtPath:appDir error:nil];
-		NSMutableArray* apps = [NSMutableArray arrayWithCapacity:[dirItems count]];
-		for (NSString* itemName in dirItems){
-			if ( [ws isFilePackageAtPath:[NSString stringWithFormat:@"%@/%@", appDir, itemName]] ) {
-				NSString* bundleIdentifier = [[NSBundle bundleWithPath:[NSString stringWithFormat:@"%@/%@", appDir, itemName]] bundleIdentifier];
-				NSLog(@"found app: %@=%@", itemName, bundleIdentifier);
-				NSDictionary* appInfo = [NSDictionary dictionaryWithObjectsAndKeys:[itemName stringByDeletingPathExtension], @"name",
-																					bundleIdentifier, @"identifier",
-																				   [NSNumber numberWithInt:NODE_APPLICATION], @"nodeType", nil];
-				[apps addObject:appInfo];
-				if ([_preferenceCoordinator filtersForAppWithIdentifier:bundleIdentifier]) {
-					[filteredApps addObject:appInfo];
-				}
-			}
-		}
-		if ([apps count] > 0)
+		NSArray* apps = [self appsAtPath:appDir];
+		if (apps && [apps count] > 0) {
 			[appSources addObject:[NSDictionary dictionaryWithObjectsAndKeys:appDir, @"name", 
 																			 apps, @"children", 
 																			 [NSNumber numberWithInt:NODE_DIRECTORY], @"nodeType", nil]];
+			for (NSDictionary* appInfo in apps) {
+				NSString* bundleIdentifier = appInfo[@"identifier"];
+				if ([_preferenceCoordinator filtersForAppWithIdentifier:bundleIdentifier]) {
+					 [filteredApps addObject:appInfo];
+				}
+			}
+		}
 	}
 
 	[self setApplicationSources:appSources];//do this to trigger the KVO bindings
@@ -452,6 +442,28 @@
 			[self performSelectorInBackground:@selector(agentStart) withObject:nil];
 			break;
 	}
+}
+
+- (NSArray*)appsAtPath:(NSString*) path
+{
+	NSLog(@"scanning %@", path);
+	
+	NSFileManager* fm = [NSFileManager defaultManager];
+	NSWorkspace* ws = [NSWorkspace sharedWorkspace];
+	
+	NSArray* dirItems = [fm contentsOfDirectoryAtPath:path error:nil];
+	NSMutableArray* apps = [NSMutableArray arrayWithCapacity:[dirItems count]];
+	for (NSString* itemName in dirItems){
+		if ( [ws isFilePackageAtPath:[NSString stringWithFormat:@"%@/%@", path, itemName]] ) {
+			NSString* bundleIdentifier = [[NSBundle bundleWithPath:[NSString stringWithFormat:@"%@/%@", path, itemName]] bundleIdentifier];
+			NSLog(@"found app: %@=%@", itemName, bundleIdentifier);
+			NSDictionary* appInfo = [NSDictionary dictionaryWithObjectsAndKeys:[itemName stringByDeletingPathExtension], @"name",
+									 bundleIdentifier, @"identifier",
+									 [NSNumber numberWithInt:NODE_APPLICATION], @"nodeType", nil];
+			[apps addObject:appInfo];
+		}
+	}
+	return apps;
 }
 
 @end
