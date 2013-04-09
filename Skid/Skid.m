@@ -138,14 +138,15 @@
 		NSLog(@"Steam Connection established.");
 
 		NSString* appSupportPath = @"~/Library/Application Support";
-		NSDictionary* steamApps = [[NSDictionary dictionaryWithContentsOfVDFFile:[NSString stringWithFormat:@"%@/Steam/registry.vdf", appSupportPath]]  valueForKeyPath:@"Registry.HKCU.Software.Valve.Steam.apps"];
+		NSDictionary* steamApps = [[NSDictionary dictionaryWithContentsOfVDFFile:[NSString stringWithFormat:@"%@/Steam/config/config.vdf", appSupportPath]]  valueForKeyPath:@"InstallConfigStore.Software.Valve.Steam.apps"];
 
-		//NSLog(@"Steam apps:\n%@", [steamApps description]);
+		NSLog(@"Steam apps:\n%@", [steamApps description]);
 		NSMutableArray* steamAppSource = [NSMutableArray array];
 		for (NSString* appIDKey in steamApps) {
+			NSLog(@"looking up steam app: %@", appIDKey);
 			SteamID appID = [appIDKey integerValue];
-			if ([[steamApps valueForKeyPath:[NSString stringWithFormat:@"%@.Installed", appIDKey]] boolValue] && ![steamAgent isDLC:appID]) {
-				
+			NSString* installDir = [steamApps valueForKeyPath:[NSString stringWithFormat:@"%@.installdir", appIDKey]];
+			if (installDir && ![steamAgent isDLC:appID]) {
 				NSLog(@"looking up name for %lu", appID);
 				NSString* appName = [steamAgent nameForSteamID:appID];
 				NSString* identifier = nil;
@@ -172,7 +173,16 @@
 						identifier = [NSString stringWithFormat:@"portal2_osx"];
 						break;
 					default:
-					identifier = [[appName retain] autorelease];
+						{
+							// search the install path for apps
+							// there may be multiple
+							NSArray* apps = [self appsAtPath:installDir];
+							for (NSDictionary* node in apps) {
+								NSLog(@"adding: %@", node);
+								[steamAppSource addObject:node];
+							}
+							continue;
+						}
 				}
 
 				NSDictionary* appNode = [NSDictionary dictionaryWithObjectsAndKeys:appName, @"name",
@@ -193,6 +203,7 @@
 		[_applicationSourcesOutlineView reloadData];
 	}else{
 		//steam isnt running. for now just ignore.
+		NSLog(@"Steam does not appear to be running. could not connect with steamAgent");
 	}
 }
 
