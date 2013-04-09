@@ -486,14 +486,15 @@ static SKID_Assistant *sharedAssistant = nil;
 					//NSApplication* app = [NSApplication sharedApplication];
 					//NSWindow* win = [app windowWithWindowNumber:winID];
 					//NSLog(@"%@ - %@", app, win);
-					NSEvent* newEvent = [NSEvent mouseEventWithType:[event type] 
-														   location:*(NSPoint*)&clickPoint
-													  modifierFlags:[event modifierFlags] 
+
+					NSEvent* newEvent = [NSEvent mouseEventWithType:[event type]
+														   location:*(NSPoint*)&mousePoint
+													  modifierFlags:[event modifierFlags]
 														  timestamp:[event timestamp] 
-													   windowNumber:winID 
+													   windowNumber:winID
 															context:nil 
-														eventNumber:[event eventNumber]+1
-														 clickCount:[event clickCount] 
+														eventNumber:[event eventNumber] + 1
+														 clickCount:[event clickCount]
 														   pressure:0];
 					
 					NSEvent* moveEvent = [NSEvent mouseEventWithType:NSMouseMoved 
