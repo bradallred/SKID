@@ -146,7 +146,6 @@
 			SteamID appID = [appIDKey integerValue];
 			if ([[steamApps valueForKeyPath:[NSString stringWithFormat:@"%@.Installed", appIDKey]] boolValue] && ![steamAgent isDLC:appID]) {
 				
-				
 				NSLog(@"looking up name for %lu", appID);
 				NSString* appName = [steamAgent nameForSteamID:appID];
 				NSString* identifier = nil;
@@ -176,7 +175,6 @@
 					identifier = [[appName retain] autorelease];
 				}
 
-				
 				NSDictionary* appNode = [NSDictionary dictionaryWithObjectsAndKeys:appName, @"name",
 										 identifier, @"identifier",
 										 [NSNumber numberWithInt:NODE_APPLICATION], @"nodeType",
@@ -402,14 +400,14 @@
 	switch (returnCode) {
 		case 1001:{//start a new scope
 			//Add to login items
-			
+
 			/*
 			 TODO: adding to startup items in this way won't work well at all unfortunately.
 			 
 			 we must make a launchd plist so that we can start as an agent without a terminal window opening
 			 as well as to setup the environment with DYLD_LIBRARY_PATH so the agent to connect to steam.
 			 */
-			
+
 			CFURLRef agentURL = (CFURLRef)[[self bundle] URLForAuxiliaryExecutable:SKID_AGENT_NAME];
 			LSSharedFileListItemRef myItem = NULL;
 			
@@ -419,7 +417,7 @@
 				NSArray *currentLoginItems = [NSMakeCollectable(LSSharedFileListCopySnapshot(loginItems, &seed)) autorelease];
 				for (id itemObject in currentLoginItems) {
 					LSSharedFileListItemRef item = (LSSharedFileListItemRef)itemObject;
-					
+
 					UInt32 resolutionFlags = kLSSharedFileListNoUserInteraction | kLSSharedFileListDoNotMountVolumes;
 					CFURLRef URL = NULL;
 					OSStatus err = LSSharedFileListItemResolve(item, resolutionFlags, &URL, /*outRef*/ NULL);
@@ -433,7 +431,7 @@
 						}
 					}
 				}
-				
+
 				if (myItem == NULL) {
 					// wasnt found so add it
 					myItem = LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst,

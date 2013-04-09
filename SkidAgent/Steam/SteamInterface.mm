@@ -24,7 +24,6 @@
 #include "OSW/SteamAPI.h"
 #include "OSW/SteamclientAPI.h"
 
-
 @implementation SteamInterface
 #pragma mark singleton inmplemetation
 // use singleton design pattern

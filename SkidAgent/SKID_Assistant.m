@@ -417,14 +417,6 @@ static SKID_Assistant *sharedAssistant = nil;
 				newCGEvent = CGEventCreateKeyboardEvent(sourceRef, [fnKeyCode intValue], keyState);
 				CFRelease(sourceRef);
 			} else {
-				/*
-				ProcessSerialNumber psn = { 0, kCurrentProcess};
-				GetFrontProcess(&psn);
-				CGEventSetIntegerValueField(newCGEvent, kCGEventTargetProcessSerialNumber, *(int64_t*)&psn);
-				CGEventPost(kCGSessionEventTap, newCGEvent);
-				return YES;
-*/
-				
 				//set ourselves up as a "universal owner" to the window server
 				pid_t dockPid = [[[NSRunningApplication runningApplicationsWithBundleIdentifier:@"com.apple.dock"] objectAtIndex:0] processIdentifier];
 				ProcessSerialNumber dockPsn = {0, 0};
@@ -433,8 +425,7 @@ static SKID_Assistant *sharedAssistant = nil;
 				CGSConnectionID universalCon = 0;
 				CGSGetConnectionIDForPSN(myCid, &dockPsn, &universalCon);
 				CGSSetOtherUniversalConnection(universalCon, myCid);
-				NSLog(@"dock cid:%i", universalCon);
-				
+
 				// for now we dont need to assign send key events to a window
 				// !!!: !fnKeyCode assumes that makes this a mouse event! this is true, but maybe in the future it wont be.
 				CGPoint mousePoint = CGEventGetUnflippedLocation(cgEvent);
@@ -486,7 +477,6 @@ static SKID_Assistant *sharedAssistant = nil;
 														  clickCount:0
 															pressure:0];
 
-					NSLog(@"new event:\n%@", newEvent);
 					newCGEvent = [newEvent CGEvent];
 					CFRetain(newCGEvent);
 				} else {
