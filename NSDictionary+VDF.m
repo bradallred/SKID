@@ -69,27 +69,35 @@
 			if (subDict != nil) {
 				[vdfKeyValues setObject:subDict
 								 forKey:key];
-			}else{
+			} else {
 				[vdfKeyValues setObject:[NSNull null] forKey:key];
 			}
-		}else{
-			NSObject* objValue = [NSNull null];
-			NSInteger intVal;
-			
+			continue;
+		}
+		NSObject* objValue = nil;
+		sentinalLoc = [sentinal rangeOfString:@"\t"].location;
+		if (sentinalLoc != NSNotFound) {
+			[vdfParser scanUpToString:@"\"" intoString:(NSString**)&objValue]; // starting "
+			NSLog(@"found single value:%@", objValue);
+			//[vdfParser scanUpToString:@"\"" intoString:(NSString**)&objValue];
+		} else {
 			if ([sentinal rangeOfString:@"\"\""].location == NSNotFound) {
+				NSInteger intVal;
 				//probably should make support for additional formats....
 				if([vdfParser scanInteger:&intVal]){
 					objValue = [NSNumber numberWithInteger:intVal];
-				}else {
+				} else {
 					[vdfParser scanUpToString:@"\"" intoString:(NSString**)&objValue];
 				}
 			}
-			
-			//NSLog(@"found value:%@", [objValue description]);
-			[vdfKeyValues setObject:objValue forKey:key];
-			
 		}
+		if (!objValue) {
+			objValue = [NSNull null];
+		}
+		NSLog(@"found value:%@ for key:%@", objValue, key);
+		[vdfKeyValues setObject:objValue forKey:key];
 	}
+	NSLog(@"VDF data: %@", vdfKeyValues);
 	return [vdfKeyValues autorelease];
 }
 
