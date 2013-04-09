@@ -398,8 +398,6 @@ static SKID_Assistant *sharedAssistant = nil;
 			ProcessSerialNumber psn = { 0, kCurrentProcess};
 			GetProcessForPID(pid, &psn);
 			NSAssert(psn.lowLongOfPSN != kNoProcess, @"Could not get PSN for front process.");
-
-			CGEventRef cgEvent = [event CGEvent];
 			// if the event is a special system event from functionn keys we need to 
 			// create a new event, but NOT RELEASE the old one; it is owned by the system.
 			if ( type == NSSystemDefined && [event subtype] == 8) {
@@ -418,7 +416,7 @@ static SKID_Assistant *sharedAssistant = nil;
 				CGEventSourceRef sourceRef = CGEventCreateSourceFromEvent(cgEvent);
 				newCGEvent = CGEventCreateKeyboardEvent(sourceRef, [fnKeyCode intValue], keyState);
 				CFRelease(sourceRef);
-			}else{
+			} else {
 				/*
 				ProcessSerialNumber psn = { 0, kCurrentProcess};
 				GetFrontProcess(&psn);
@@ -468,25 +466,6 @@ static SKID_Assistant *sharedAssistant = nil;
 				}
 
 				if (winID) {
-					//clickPoint = CGEventGetUnflippedLocation(cgEvent);
-					//newCGEvent = CGEventCreateCopy(cgEvent);
-					//CGEventSetIntegerValueField(newCGEvent, 51, winID);
-					// I can't seem to figure out how to assign a CGevent to a window, but we can make
-					// an NSEvent then get the CGEventRef for it
-					//clickPoint.x = 720;
-					//clickPoint.y = 450;
-					/*
-					CGEventSourceRef evSource = CGEventCreateSourceFromEvent(cgEvent);
-					newCGEvent = CGEventCreateMouseEvent(evSource, [event type], clickPoint, 2);
-					CGEventRef test = CGEventCreateMouseEvent(NULL, kCGEventMouseMoved, clickPoint, 0);
-					CGEventPost(kCGSessionEventTap, test);
-					CFRelease(evSource);
-					CFRelease(test);
-					 */
-					//NSApplication* app = [NSApplication sharedApplication];
-					//NSWindow* win = [app windowWithWindowNumber:winID];
-					//NSLog(@"%@ - %@", app, win);
-
 					NSEvent* newEvent = [NSEvent mouseEventWithType:[event type]
 														   location:*(NSPoint*)&mousePoint
 													  modifierFlags:[event modifierFlags]
@@ -496,8 +475,8 @@ static SKID_Assistant *sharedAssistant = nil;
 														eventNumber:[event eventNumber] + 1
 														 clickCount:[event clickCount]
 														   pressure:0];
-					
-					NSEvent* moveEvent = [NSEvent mouseEventWithType:NSMouseMoved 
+
+					NSEvent* moveEvent = [NSEvent mouseEventWithType:NSMouseMoved
 															location:*(NSPoint*)&clickPoint
 													   modifierFlags:0
 														   timestamp:[event timestamp] 
@@ -506,65 +485,17 @@ static SKID_Assistant *sharedAssistant = nil;
 														 eventNumber:[event eventNumber]
 														  clickCount:0
 															pressure:0];
-					 
 
 					NSLog(@"new event:\n%@", newEvent);
 					newCGEvent = [newEvent CGEvent];
 					CFRetain(newCGEvent);
-					//CGEventSetLocation(newCGEvent, clickPoint);
-					NSLog(@"click at %f, %f", clickPoint.x, clickPoint.y);
-					CGEventSetIntegerValueField(newCGEvent, 
-												kCGMouseEventButtonNumber, 
-												CGEventGetIntegerValueField(cgEvent, kCGMouseEventButtonNumber));
-					CGEventSetIntegerValueField(newCGEvent, 
-												kCGEventSourceStateID, 
-												CGEventGetIntegerValueField(cgEvent, kCGEventSourceStateID));
-					CGEventSetIntegerValueField(newCGEvent, 
-												59, 
-												CGEventGetIntegerValueField(cgEvent, 59));
-					CGEventSetDoubleValueField(newCGEvent, 
-												87, 
-												CGEventGetDoubleValueField(cgEvent, 87));
-					CGEventSetIntegerValueField(newCGEvent, 
-												51, 
-												winID);		
-					CGEventSetIntegerValueField(newCGEvent, 
-												kCGMouseEventWindowUnderMousePointer, 
-												winID);
-					CGEventSetIntegerValueField(newCGEvent, 
-												kCGMouseEventWindowUnderMousePointerThatCanHandleThisEvent, 
-												winID);
-			
-				}else{
-					// just trying to get this to work with valve games...
-					// I have already tried sending to the window and just redirecting the existing event to the PSN
-					// now I think the problem may be that i need to change the event source or something dumb
-					/*
-					newCGEvent = CGEventCreateMouseEvent(NULL, type, clickPoint, [event buttonNumber]);
-					CGEventSetIntegerValueField(newCGEvent, kCGMouseEventClickState, CGEventGetIntegerValueField(cgEvent, kCGMouseEventClickState));
-					 */
+				} else {
+					return NO;
 				}
 			}
 
-			CGEventSetIntegerValueField(newCGEvent, kCGEventTargetProcessSerialNumber, psn.lowLongOfPSN);
-			CGEventSetIntegerValueField(newCGEvent, kCGEventTargetUnixProcessID, pid);
-			//CGEventSetIntegerValueField(newCGEvent, kCGEventSourceUserData, *(int64_t*)&psn);
-			
+			NSLog(@"forwarding event: %@", event);
 			CGEventPostToPSN(&psn, newCGEvent);
-			//CGEventPost(kCGSessionEventTap, newCGEvent);
-			
-			int64_t oldData;
-			int64_t newData;
-			for (int i=0; i <= 99; i++) {
-				oldData = CGEventGetIntegerValueField(cgEvent, i);
-				newData = CGEventGetIntegerValueField(newCGEvent, i);
-				if (oldData != newData) {
-					NSLog(@"data mismatch for field %i: old=%lld, new=%lld", i, oldData, newData);
-				}else if (newData){
-					//NSLog(@"data in field %i matches but is not 0:%lld", i, newData);
-				}
-			}
-			
 			NSLog(@"intercepted event being dispatched to:%@ - %lu", [activeApp localizedName], psn.lowLongOfPSN);
 
 			CFRelease(newCGEvent);
