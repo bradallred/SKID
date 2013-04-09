@@ -388,6 +388,7 @@
 		NSLog(@"Connection closed.");
 		@synchronized(_agent){
 			[_agent release];
+			_agent = nil;
 		}
 	}else{
 		// connected
