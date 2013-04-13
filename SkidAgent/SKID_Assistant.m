@@ -412,6 +412,7 @@ static SKID_Assistant *sharedAssistant = nil;
 				fnKeyCode = [_functionKeyLookup objectForKey:lookupKey];
 			}
 			CGEventRef newCGEvent = NULL;//cgEvent;
+			//CGEventRef moveCGEvent = NULL;
 			if (fnKeyCode) { 
 				CGEventSourceRef sourceRef = CGEventCreateSourceFromEvent(cgEvent);
 				newCGEvent = CGEventCreateKeyboardEvent(sourceRef, [fnKeyCode intValue], keyState);
@@ -466,17 +467,19 @@ static SKID_Assistant *sharedAssistant = nil;
 														eventNumber:[event eventNumber] + 1
 														 clickCount:[event clickCount]
 														   pressure:0];
-
+/*
 					NSEvent* moveEvent = [NSEvent mouseEventWithType:NSMouseMoved
 															location:*(NSPoint*)&clickPoint
 													   modifierFlags:0
 														   timestamp:[event timestamp] 
-														windowNumber:winID 
+														windowNumber:winID
 															 context:nil 
 														 eventNumber:[event eventNumber]
 														  clickCount:0
 															pressure:0];
 
+					moveCGEvent = [moveEvent CGEvent];
+ */
 					newCGEvent = [newEvent CGEvent];
 					CFRetain(newCGEvent);
 				} else {
