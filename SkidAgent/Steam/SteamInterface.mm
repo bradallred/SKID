@@ -63,7 +63,9 @@ static SteamInterface *sharedInterface = nil;
 				delete loader;
 				if (SteamAPI_Init == NULL || factory == NULL) {
 					NSLog(@"steam libraries not loaded!");
-					[self dealloc];
+					// call super implementation because this class is a singleton
+					// but we want this attempt to dealloc without leaking
+					[super release];
 					return nil;
 				}
 				// WARNING: even with IPC server running
@@ -91,7 +93,9 @@ static SteamInterface *sharedInterface = nil;
 				
 				if (![_serviceConnection registerName:STEAM_SERVICE_NAME]){
 					NSLog(@"Unable to register steam lookup service.");
-					[self dealloc];
+					// call super implementation because this class is a singleton
+					// but we want this attempt to dealloc without leaking
+					[super release];
 					return nil;
 				}
 				sharedInterface = self;

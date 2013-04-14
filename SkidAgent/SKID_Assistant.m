@@ -118,7 +118,8 @@ static SKID_Assistant *sharedAssistant = nil;
 
 				if (![_vendorConnection registerName:SKID_AGENT_NAME]){
 					NSLog(@"Unable to register SkidAgent service. Exiting.");
-					[self dealloc];
+					[super release]; //singleton. must call on super.
+					// completely fail and die.
 					exit(EXIT_FAILURE);
 				}
 				sharedAssistant = self;
