@@ -511,11 +511,11 @@ static SKID_Assistant *sharedAssistant = nil;
 {
 	//this will probably never get called.
 	if (_vendorConnection) [self terminate];
-	[super dealloc];
 	
 	[_functionKeyLookup release];
 	
 	[_arPool release];
+	[super dealloc];
 }
 
 @end

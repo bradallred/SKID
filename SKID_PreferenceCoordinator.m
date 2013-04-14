@@ -86,10 +86,10 @@ static SKID_PreferenceCoordinator *sharedPreferenceCoordinator = nil;
 	// make sure verything is synchronized before deallocating.
 	[self writePreferences];
 
-	[super dealloc];
 	[_userDefaults release];
 	[_systemHotKeys release];
 	[_SKIDPrefs release];
+	[super dealloc];
 }
 
 - (void)writePreferences
