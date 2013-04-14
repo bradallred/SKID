@@ -460,7 +460,7 @@ static SKID_Assistant *sharedAssistant = nil;
 
 				if (winID) {
 					NSEvent* newEvent = [NSEvent mouseEventWithType:[event type]
-														   location:*(NSPoint*)&mousePoint
+														   location: NSPointFromCGPoint(mousePoint)
 													  modifierFlags:[event modifierFlags]
 														  timestamp:[event timestamp] 
 													   windowNumber:winID
