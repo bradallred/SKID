@@ -457,7 +457,8 @@ static SKID_Assistant *sharedAssistant = nil;
 						return NO;
 					}
 				}
-
+				// CGWindowListCopyWindowInfo say we should release.
+				[windows release];
 				if (winID) {
 					NSEvent* newEvent = [NSEvent mouseEventWithType:[event type]
 														   location: NSPointFromCGPoint(mousePoint)
