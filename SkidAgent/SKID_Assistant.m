@@ -371,6 +371,46 @@ static SKID_Assistant *sharedAssistant = nil;
 	NSLog(@"Event Mask set to:%llx", _eventMask);
 }
 
+// Note: the screen visible rect that is supposed to take dock/menubar into consideration
+// doesnt seem to consider the dock height when it is set to hidden and then exposed by the mouse
+// we have to do this another, more horrible way.
+- (BOOL)pointIntercectsWithDock:(NSPoint) point
+{
+	NSRect dockWinFrame = NSZeroRect;
+
+	pid_t dockPid = [[[NSRunningApplication runningApplicationsWithBundleIdentifier:@"com.apple.dock"] objectAtIndex:0] processIdentifier];
+	// FIXME: this is relatively expensive. maybe there is a way to do this conditionally
+	NSArray* windows = (NSArray*)CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly, kCGNullWindowID);
+	for (NSDictionary* winDict in windows) {
+		// TODO: find out if there is a better way to find this.
+		int winPid = [[winDict valueForKey:(NSString*)kCGWindowOwnerPID] intValue];
+		// when the dock is hidden there is no way to find out if the mouse is hovering over it when it appears
+		// however, when it is revealed a window called "Magic Mirror" is created and shown
+		// obviously this is not backwards compatible with versions of Mac OS before the magic mirror
+		// also this does not work well at all with magnification.
+		NSString* winName = [winDict valueForKey:(NSString*)kCGWindowName];
+		if (winPid == dockPid && [winName isEqualToString:@"Magic Mirror"]) {
+			CGRectMakeWithDictionaryRepresentation((CFDictionaryRef)[winDict valueForKey:(NSString*)kCGWindowBounds], (CGRect*)&dockWinFrame);
+			// the mirror is always about 75% of actual dock height.
+			if (dockWinFrame.size.height > dockWinFrame.size.width) {
+				// on the side of screen
+				dockWinFrame.size.width *= 1.5; // FIXME: this is a guess.
+				// TODO: implement origin for dock on side
+			} else {
+				// bottom of screen
+				dockWinFrame.size.height *= 1.5; // FIXME: this is a guess.
+				dockWinFrame.origin.y = 0;//[NSScreen mainScreen].frame.size.height - dockWinFrame.size.height;
+			}
+			break; // assume only 1 dock window
+		}
+	}
+	
+	NSLog(@"testing if point %@ lies within %@",
+		  NSStringFromPoint(point),
+		  NSStringFromRect(dockWinFrame));
+	return NSMouseInRect(point, dockWinFrame, NO);
+}
+
 - (BOOL)processEvent:(CGEventRef)cgEvent
 {		
 	NSEventType type = (NSEventType)CGEventGetType(cgEvent);
@@ -439,7 +479,7 @@ static SKID_Assistant *sharedAssistant = nil;
 
 				int frontCid;
 				CGSGetConnectionIDForPSN(myCid, &psn, &frontCid);
-				if (cidOut != frontCid) {
+				if (cidOut != frontCid || [self pointIntercectsWithDock:NSPointFromCGPoint(mousePoint)]) {
 					// only interested in active processes windows
 					return NO;
 				}
