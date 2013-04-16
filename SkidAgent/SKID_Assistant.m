@@ -450,10 +450,23 @@ static SKID_Assistant *sharedAssistant = nil;
 																		winID);
 				for (NSDictionary* winDict in windows) {
 					// TODO: find out if there is a better way to find this.
-					if ([[winDict valueForKey:(NSString*)kCGWindowOwnerPID] intValue] == pid
-						&& [[winDict valueForKey:(NSString*)kCGWindowAlpha] floatValue] > 0.0
-						&& [[winDict valueForKey:(NSString*)kCGWindowLayer] intValue] == kCGNormalWindowLevel) {
-						// another window has focus
+					int winPid = [[winDict valueForKey:(NSString*)kCGWindowOwnerPID] intValue];
+					int winLayer = [[winDict valueForKey:(NSString*)kCGWindowLayer] intValue];
+					if (
+						// popup windows (context menus) always have priority, regardless of owner pid
+						// we COULD intercect the window rects with the event location,
+						// i feel this to be unnecessary since it is a context menu and the user probably doesnt want us eating events for it
+							winLayer == kCGPopUpMenuWindowLevel
+
+						// only worry about front processes windows
+						||( winPid == pid
+						    // ignore invisible windows or special UI windows (popup windows handled previously)
+						&&  [[winDict valueForKey:(NSString*)kCGWindowAlpha] floatValue] > 0.0
+						&&  winLayer == kCGNormalWindowLevel
+						  )
+					   )
+					{
+						// another window has focus / priority
 						return NO;
 					}
 				}
